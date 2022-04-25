@@ -1,12 +1,28 @@
 Package: BreastCancerExplorer
-Title: An Amazing Shiny App
+Title: BreastCancerExplorer
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "firstname",
-           family = "lastname",
-           role = c("aut", "cre"),
-           email = "your@email.com")
-Description: What the package does (one paragraph).
+Authors@R: c(person(given = 'Mikkel', 
+                    family = 'Swartz', 
+                    email = 's174586@student.dtu.dk', 
+                    role = c('cre', 'aut')),
+            person(given = 'Søren', 
+                    family = 'Sandgaard', 
+                    email = 's173686@student.dtu.dk', 
+                    role = 'aut'),
+            person(given = 'Aldis', 
+                    family = 'Björgvinsdóttir', 
+                    email = 's212956@student.dtu.dk', 
+                    role = 'aut'),
+            person(given = 'Lasse', 
+                    family = 'Rene', 
+                    email = 's183448@student.dtu.dk', 
+                    role = 'aut'),
+            person(given = 'Helene', 
+                    family = 'Wegener', 
+                    email = 's165827@student.dtu.dk', 
+                    role = 'aut'))
+
+Description: This is an app where you can explore the Real Breast Cancer Dataset
 License: What license is it under?
 Imports: 
     config (>= 0.3.1),
@@ -15,3 +31,5 @@ Imports:
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
+URL: https://github.com/rforbiodatascience22/group_15_final_project_app
+BugReports: https://github.com/rforbiodatascience22/group_15_final_project_app/issues
