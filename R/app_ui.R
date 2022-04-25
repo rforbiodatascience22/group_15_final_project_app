@@ -10,7 +10,8 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      h1("BreastCancerExplorer")
+      h1("BreastCancerExplorer"),
+      mod_variable_overview_ui("variable_overview_1")
     )
   )
 }
