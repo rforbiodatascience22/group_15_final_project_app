@@ -16,7 +16,7 @@ mod_variable_overview_ui <- function(id){
       shiny::sidebarPanel(
         shiny::radioButtons(
           inputId = ns("attributes"),
-          label = "protein2",
+          label = NULL,
           choices = c("protein1", "protein2")
         )
       ),
