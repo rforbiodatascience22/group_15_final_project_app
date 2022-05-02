@@ -26,8 +26,8 @@ dens_protein_BRCA <- function(data, proteins, attribute){
                  names_to = 'Protein',
                  values_to = 'Expression_Level') %>%
     ggplot(data = .,
-           mapping = aes(x = Expression_Level,
-                         color = {{attribute}})) +
+           mapping = aes_string(x = "Expression_Level",
+                         color = attribute)) +
     geom_density() +
     facet_wrap(~Protein,
                nrow=4) +

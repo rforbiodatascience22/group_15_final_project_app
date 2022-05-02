@@ -16,7 +16,8 @@ mod_densityplots_ui <- function(id){
       shiny::checkboxGroupInput(
         inputId = ns("Protein_choice_dens"),
         label = NULL,
-        choices = c("Protein1","Protein2","Protein3","Protein4")
+        choices = c("Protein1","Protein2","Protein3","Protein4"),
+        selected = c("Protein1",'Protein2','Protein3','Protein4')
       ),
       boldtext("Choose attribute"),
       shiny::radioButtons(
