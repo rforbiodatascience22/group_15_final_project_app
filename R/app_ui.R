@@ -9,23 +9,15 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
-
-    #fluidPage(
-    #  h1("BreastCancerExplorer"),
-        #mod_variable_overview_ui("variable_overview_1")
-    #)
-
     fluidPage(
       h1("BreastCancerExplorer"),
       tabsetPanel(
         tabPanel(title = "Home",
                  mod_home_ui("home_1")),
         tabPanel(title = "Test",
-                 mod_variable_overview_ui("variable_overview_1"))
-
-        #tabPanel(title = "Amino acid occurrence plot",
-        #         mod_aa_plot_ui("aa_plot_1"))
-
+                 mod_variable_overview_ui("variable_overview_1")),
+        tabPanel(title = "DensityPlot",
+                 mod_densityplots_ui("densityplots_1"))
       )
     )
   )
