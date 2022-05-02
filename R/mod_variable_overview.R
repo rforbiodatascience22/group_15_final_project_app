@@ -17,14 +17,15 @@ mod_variable_overview_ui <- function(id){
         shiny::radioButtons(
           inputId = ns("attributes"),
           label = NULL,
-          choices = c("protein1", "protein2")
+          choices = c("Protein1", "Protein2")
         )
       ),
-      mainPanel(
-        "main panel test"
-        #plotOutput("distPlot")
+      shiny::mainPanel(
+        shiny::plotOutput(
+          outputId = ns("abundance")
+        ),
+        shiny::textOutput(outputId = ns("attributes"))
       )
-
     )
   )
 }
@@ -35,6 +36,17 @@ mod_variable_overview_ui <- function(id){
 mod_variable_overview_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
+
+    output$abundance <- renderPlot(
+      boxplot_brca(my_data_clean,
+                   "Tumour_Stage",
+                   input$attributes)
+    )
+
+    # peptide header
+    output$attributes <- renderText({
+      input$attributes
+    })
 
   })
 }
