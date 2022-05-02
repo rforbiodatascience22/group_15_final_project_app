@@ -11,20 +11,26 @@ mod_variable_overview_ui <- function(id){
   ns <- NS(id)
   tagList(
     titlePanel("test"),
-
     shiny::sidebarLayout(
       shiny::sidebarPanel(
+        boldtext("Choose protein:"),
         shiny::radioButtons(
-          inputId = ns("attributes"),
+          inputId = ns("Protein_choise"),
           label = NULL,
-          choices = c("Protein1", "Protein2")
-        )
+          choices = c("Protein1", "Protein2", "Protein3", "Protein4")
+        ),
+        boldtext("Choose coloring:"),
+        shiny::radioButtons(
+          inputId = ns("color_choise"),
+          label = NULL,
+          choices = c("NULL", "Patient_Status")
+        ),
       ),
       shiny::mainPanel(
         shiny::plotOutput(
           outputId = ns("abundance")
         ),
-        shiny::textOutput(outputId = ns("attributes"))
+        shiny::textOutput(outputId = ns("Protein_choise"))
       )
     )
   )
@@ -40,7 +46,8 @@ mod_variable_overview_server <- function(id){
     output$abundance <- renderPlot(
       boxplot_brca(my_data_clean,
                    "Tumour_Stage",
-                   input$attributes)
+                   input$Protein_choise,
+                   input$color_choise)
     )
 
     # peptide header
