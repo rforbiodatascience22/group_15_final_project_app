@@ -3,7 +3,66 @@ library("tidyverse")
 library("fs")
 library("patchwork")
 
-my_data_clean_aug <- read.csv(file = "/cloud/project/project_files/data/03_my_data_clean_aug.csv")
+# Load data
+my_data_clean_aug <- read.csv(file = "/cloud/project/project_files/data/03_my_data_clean_aug.csv",
+                    na.strings = '',
+                    colClasses = c('character',
+                                   'numeric',
+                                   'factor',
+                                   'numeric',
+                                   'numeric',
+                                   'numeric',
+                                   'numeric',
+                                   'factor',
+                                   'factor',
+                                   'factor',
+                                   'factor',
+                                   'Date',
+                                   'Date',
+                                   'factor',
+                                   'numeric'))
+
+# Boxplot - factorial as x, nummeric as y.
+boxplot_brca <- function(data, attribute1, attribute2, attribute3){
+  my_plot <- data %>%
+    ggplot2::ggplot(ggplot2::aes_string(x = attribute1,
+                                        y = attribute2,
+                                        color = attribute3)) +
+    ggplot2::geom_boxplot() +
+    ggplot2::labs(x = stringr::str_replace(attribute1,'_',' '),
+                  y = attribute2) +
+    ggplot2::theme_classic() +
+    ggplot2::theme(legend.position = "bottom")
+  return(my_plot)
+}
+
+# Violin - factorial as x, nummeric as y.
+violin_brca <- function(data, attribute1, attribute2, attribute3){
+  my_plot <- data %>%
+    ggplot2::ggplot(ggplot2::aes_string(x = attribute1,
+                                        y = attribute2,
+                                        color = attribute3)) +
+    ggplot2::geom_violin() +
+    ggplot2::labs(x = stringr::str_replace(attribute1,'_',' '),
+                  y = attribute2) +
+    ggplot2::theme_classic() +
+    ggplot2::theme(legend.position = "bottom")
+  return(my_plot)
+}
+
+# barplot - factorial as x
+barplot_brca <- function(data, attribute1, attribute2){
+  my_plot <- data %>%
+    ggplot2::ggplot(ggplot2::aes_string(x = attribute1,
+                                        fill = attribute2)) +
+    ggplot2::geom_bar() +
+    ggplot2::labs(x = stringr::str_replace(attribute1,'_',' '),
+                  y = "Count") +
+    ggplot2::theme_classic() +
+    ggplot2::theme(legend.position = "bottom")
+  return(my_plot)
+}
+
 
 # Plotting an atribute
 histrogram_count <- function(data, atribute){
@@ -31,5 +90,6 @@ dens_protein_BRCA <- function(data, proteins, attribute){
     geom_density() +
     facet_wrap(~Protein,
                nrow=4) +
-    theme_classic()
+    theme_classic() +
+    theme(legend.position = "bottom")
 }

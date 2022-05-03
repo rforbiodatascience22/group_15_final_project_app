@@ -11,6 +11,7 @@ mod_densityplots_ui <- function(id){
   ns <- NS(id)
   tagList(
     titlePanel("Density plots of proteins"),
+
     shiny::sidebarPanel(
       boldtext("Choose proteins"),
       shiny::checkboxGroupInput(
@@ -19,17 +20,23 @@ mod_densityplots_ui <- function(id){
         choices = c("Protein1","Protein2","Protein3","Protein4"),
         selected = c("Protein1",'Protein2','Protein3','Protein4')
       ),
+
       boldtext("Choose attribute"),
       shiny::radioButtons(
         inputId = ns("Attribute_dens"),
         label = NULL,
         choices = c("Tumour_Stage","Histology","HER2.status","Patient_Status")
-      )
+      ),
+
+      # Set width of sidebar panel
+      width = 3
     ),
     mainPanel(
       shiny::plotOutput(
         outputId = ns("Density_Plot")
-      )
+      ),
+    # Set width of main panel
+    width = 9
     )
   )
 }

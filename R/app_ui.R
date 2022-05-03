@@ -14,9 +14,9 @@ app_ui <- function(request) {
       tabsetPanel(
         tabPanel(title = "Home",
                  mod_home_ui("home_1")),
-        tabPanel(title = "Test",
+        tabPanel(title = "Variable overview",
                  mod_variable_overview_ui("variable_overview_1")),
-        tabPanel(title = "DensityPlot",
+        tabPanel(title = "Density Plot",
                  mod_densityplots_ui("densityplots_1"))
       )
     )
