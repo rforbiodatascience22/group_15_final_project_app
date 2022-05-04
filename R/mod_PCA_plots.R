@@ -18,23 +18,23 @@ mod_PCA_plots_ui <- function(id){
         shiny::radioButtons(
           inputId = ns("PCA_choice_x"),
           label = NULL,
-          choices = c("Protein 1" = "Protein1",
-                      "Protein 2" = "Protein2",
-                      "Protein 3" = "Protein3",
-                      "Protein 4" = "Protein4",
-                      "Age")
+          choices = c("PC 1" = ".fittedPC1",
+                      "PC 2" = ".fittedPC2",
+                      "PC 3" = ".fittedPC3",
+                      "PC 4" = ".fittedPC4",
+                      "PC 5" = ".fittedPC5")
         ),
 
         boldtext("Choose y-value:"),
         shiny::radioButtons(
           inputId = ns("PCA_choice_y"),
           label = NULL,
-          choices = c("Protein 1" = "Protein1",
-                      "Protein 2" = "Protein2",
-                      "Protein 3" = "Protein3",
-                      "Protein 4" = "Protein4",
-                      "Age"),
-          selected = ("Protein2")
+          choices = c("PC 1" = ".fittedPC1",
+                      "PC 2" = ".fittedPC2",
+                      "PC 3" = ".fittedPC3",
+                      "PC 4" = ".fittedPC4",
+                      "PC 5" = ".fittedPC5"),
+          selected = (".fittedPC2")
         ),
 
         # Set width of sidebar panel

@@ -10,7 +10,6 @@
 mod_variable_overview_ui <- function(id){
   ns <- NS(id)
   tagList(
-    fluidRow(
     titlePanel("Factorial vs nummeric attributes"),
 
     shiny::sidebarLayout(
@@ -68,10 +67,8 @@ mod_variable_overview_ui <- function(id){
           # Set width of main panel
           width = 9
         )
-      )
-    ),
+      ),
 
-    fluidRow(
       titlePanel("Factorial attributes"),
 
       shiny::sidebarLayout(
@@ -110,9 +107,6 @@ mod_variable_overview_ui <- function(id){
           width = 9
         )
       )
-    )
-
-
   )
 }
 

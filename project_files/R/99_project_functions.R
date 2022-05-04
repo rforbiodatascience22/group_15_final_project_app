@@ -2,6 +2,9 @@
 library("tidyverse")
 library("fs")
 library("patchwork")
+library("broom")
+library("ggplot2")
+library("cowplot")
 
 # Load data
 my_data_clean_aug <- read.csv(file = "/cloud/project/project_files/data/03_my_data_clean_aug.csv",
@@ -98,8 +101,6 @@ dens_protein_BRCA <- function(data, proteins, attribute){
 
 #### PCA ####
 pca_vis_BRCA <- function(data, PC1, PC2){
-  data <- my_data_clean_aug
-
   data_wide <- data %>%
     select(Age,matches("Protein"),Patient_Status_Binary) %>%
     mutate(Patient_Status_Binary = case_when(Patient_Status_Binary == 0 ~ '0',
@@ -117,7 +118,8 @@ pca_vis_BRCA <- function(data, PC1, PC2){
     geom_point(size = 1.5) +
     scale_color_discrete() +
     theme_classic() +
-    background_grid()
+    background_grid() +
+    theme(legend.position = "bottom")
 }
 
 
