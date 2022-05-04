@@ -6,7 +6,29 @@
 #'
 #' @noRd
 #'
-source(file = "project_files/R/00_doit.R")
+#'
+library('tidyverse')
+# Get filenames from main repository
+path_from = "https://raw.githubusercontent.com/rforbiodatascience22/2022_group15_final_project/main/"
+filenames = c("R/01_load.R",
+              "R/02_clean.R",
+              "R/03_augment.R",
+              "R/99_project_functions.R",
+              "data/_raw/BRCA2.csv")
+
+# Download files from main repository
+for (filename in filenames) {
+  file = read_file(str_c(path_from, filename))
+  write_file(x=file,
+            path = filename)
+}
+
+# Run files from main repository
+source(file = "project_files/R/01_load.R")
+source(file = "project_files/R/02_clean.R")
+source(file = "project_files/R/03_augment.R")
+source(file = "project_files/R/99_project_functions.R")
+
 
 boldtext <- function (text)
 {
