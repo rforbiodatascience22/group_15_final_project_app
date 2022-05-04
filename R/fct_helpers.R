@@ -17,6 +17,8 @@ filenames = c("R/01_load.R",
               "data/_raw/BRCA2.csv")
 
 # Download files from main repository
+dir.create("data")
+dir.create("data/_raw")
 for (filename in filenames) {
   file = read_file(str_c(path_from, filename))
   write_file(x=file,
