@@ -34,7 +34,19 @@ mod_PCA_plots_ui <- function(id){
                       "PC 3" = "PC3",
                       "PC 4" = "PC4",
                       "PC 5" = "PC5"),
-          selected = ("PC2")
+          selected = "PC2"
+        ),
+
+        boldtext("Choose color:"),
+        shiny::radioButtons(
+          inputId = ns("PCA_choice_color"),
+          label = NULL,
+          choices = c("Tumour stage" = "Tumour_Stage",
+                      "Histology",
+                      "HER2 status" = "HER2.status",
+                      "Surgery type" = "Surgery_type",
+                      "Patient status" = "Patient_Status"),
+          selected = "Patient_Status"
         ),
 
         # Set width of sidebar panel
@@ -62,7 +74,8 @@ mod_PCA_plots_server <- function(id){
     output$PCA <- renderPlot(
       pca_vis_BRCA(my_data_clean_aug,
                    input$PCA_choice_x,
-                   input$PCA_choice_y)
+                   input$PCA_choice_y,
+                   input$PCA_choice_color)
       )
 
   })

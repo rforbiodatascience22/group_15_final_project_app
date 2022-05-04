@@ -24,10 +24,10 @@ for (filename in filenames) {
 }
 
 # Run files from main repository
-source(file = "project_files/R/01_load.R")
-source(file = "project_files/R/02_clean.R")
-source(file = "project_files/R/03_augment.R")
-source(file = "project_files/R/99_project_functions.R")
+source(file = "R/01_load.R")
+source(file = "R/02_clean.R")
+source(file = "R/03_augment.R")
+source(file = "R/99_project_functions.R")
 
 
 boldtext <- function (text)
