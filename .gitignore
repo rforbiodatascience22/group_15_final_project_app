@@ -9,3 +9,6 @@ myshinyapp*.tgz
 BreastCancerExplorer.Rcheck/
 BreastCancerExplorer*.tar.gz
 BreastCancerExplorer*.tgz
+R/0*
+R/99_project_functions.R
+data/*
