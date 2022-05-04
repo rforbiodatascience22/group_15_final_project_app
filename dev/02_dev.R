@@ -22,6 +22,7 @@ attachment::att_amend_desc()
 golem::add_module(name = "home", with_test = FALSE) # Name of the module
 golem::add_module(name = "variable_overview", with_test = FALSE) # Name of the module
 golem::add_module(name = "densityplots", with_test = FALSE) # Name of the module
+golem::add_module(name = "PCA_plots", with_test = FALSE) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*

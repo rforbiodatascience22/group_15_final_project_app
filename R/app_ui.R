@@ -17,7 +17,9 @@ app_ui <- function(request) {
         tabPanel(title = "Variable overview",
                  mod_variable_overview_ui("variable_overview_1")),
         tabPanel(title = "Density Plot",
-                 mod_densityplots_ui("densityplots_1"))
+                 mod_densityplots_ui("densityplots_1")),
+        tabPanel(title = "PCA Plots",
+                 mod_densityplots_ui("PCA_plots_1"))
       )
     )
   )
