@@ -33,8 +33,9 @@ mod_PCA_plots_ui <- function(id){
                       "Protein 2" = "Protein2",
                       "Protein 3" = "Protein3",
                       "Protein 4" = "Protein4",
-                      "Age")
-        )
+                      "Age"),
+          selected = ("Protein2")
+        ),
 
         # Set width of sidebar panel
         width = 3
