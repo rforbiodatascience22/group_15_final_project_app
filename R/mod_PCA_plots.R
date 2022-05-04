@@ -60,7 +60,7 @@ mod_PCA_plots_server <- function(id){
     ns <- session$ns
 
     output$PCA <- renderPlot(
-      PCA_brca(my_data_clean_aug,
+      pca_vis_BRCA(my_data_clean_aug,
                    input$PCA_choice_x,
                    input$PCA_choice_y)
       )

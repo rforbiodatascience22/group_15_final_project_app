@@ -17,7 +17,10 @@ mod_densityplots_ui <- function(id){
       shiny::checkboxGroupInput(
         inputId = ns("Protein_choice_dens"),
         label = NULL,
-        choices = c("Protein1","Protein2","Protein3","Protein4"),
+        choices = c("Protein 1" = "Protein1",
+                    "Protein 2" = "Protein2",
+                    "Protein 3" = "Protein3",
+                    "Protein 4" = "Protein4"),
         selected = c("Protein1",'Protein2','Protein3','Protein4')
       ),
 
@@ -25,7 +28,10 @@ mod_densityplots_ui <- function(id){
       shiny::radioButtons(
         inputId = ns("Attribute_dens"),
         label = NULL,
-        choices = c("Tumour_Stage","Histology","HER2.status","Patient_Status")
+        choices = c("Tumour stage" = "Tumour_Stage",
+                    "Histology",
+                    "HER2 status" = "HER2.status",
+                    "Patient status" = "Patient_Status")
       ),
 
       # Set width of sidebar panel
