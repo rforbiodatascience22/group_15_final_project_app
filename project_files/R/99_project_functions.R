@@ -23,7 +23,7 @@ my_data_clean_aug <- read.csv(file = "/cloud/project/project_files/data/03_my_da
                                    'numeric'))
 
 # Boxplot - factorial as x, nummeric as y.
-boxplot_brca <- function(data, attribute1, attribute2, attribute3){
+boxplot_BRCA <- function(data, attribute1, attribute2, attribute3){
   my_plot <- data %>%
     ggplot2::ggplot(ggplot2::aes_string(x = attribute1,
                                         y = attribute2,
@@ -37,7 +37,7 @@ boxplot_brca <- function(data, attribute1, attribute2, attribute3){
 }
 
 # Violin - factorial as x, nummeric as y.
-violin_brca <- function(data, attribute1, attribute2, attribute3){
+violin_BRCA <- function(data, attribute1, attribute2, attribute3){
   my_plot <- data %>%
     ggplot2::ggplot(ggplot2::aes_string(x = attribute1,
                                         y = attribute2,
@@ -51,7 +51,7 @@ violin_brca <- function(data, attribute1, attribute2, attribute3){
 }
 
 # barplot - factorial as x
-barplot_brca <- function(data, attribute1, attribute2){
+barplot_BRCA <- function(data, attribute1, attribute2){
   my_plot <- data %>%
     ggplot2::ggplot(ggplot2::aes_string(x = attribute1,
                                         fill = attribute2)) +
@@ -87,6 +87,8 @@ dens_protein_BRCA <- function(data, proteins, attribute){
     ggplot(data = .,
            mapping = aes_string(x = "Expression_Level",
                          color = attribute)) +
+    ggplot2::labs(x = "Expression Level",
+                  y = "Density") +
     geom_density() +
     facet_wrap(~Protein,
                nrow=4) +

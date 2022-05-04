@@ -33,8 +33,9 @@ mod_PCA_plots_ui <- function(id){
                       "Protein 2" = "Protein2",
                       "Protein 3" = "Protein3",
                       "Protein 4" = "Protein4",
-                      "Age")
-        )
+                      "Age"),
+          selected = ("Protein2")
+        ),
 
         # Set width of sidebar panel
         width = 3
@@ -59,7 +60,7 @@ mod_PCA_plots_server <- function(id){
     ns <- session$ns
 
     output$PCA <- renderPlot(
-      PCA_brca(my_data_clean_aug,
+      pca_vis_BRCA(my_data_clean_aug,
                    input$PCA_choice_x,
                    input$PCA_choice_y)
       )

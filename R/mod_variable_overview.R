@@ -125,13 +125,13 @@ mod_variable_overview_server <- function(id){
 
     output$num_vs_fac <- renderPlot({
     if (input$plot_type_num_vs_fac == "Boxplot") {
-      boxplot_brca(my_data_clean_aug,
+      boxplot_BRCA(my_data_clean_aug,
                    input$Factorial_choice_num_vs_fac,
                    input$Nummeric_choice_num_vs_fac,
                    input$color_choise_num_vs_fac)
         }
     else if (input$plot_type_num_vs_fac == "Violin plot") {
-          violin_brca(my_data_clean_aug,
+          violin_BRCA(my_data_clean_aug,
                        input$Factorial_choice_num_vs_fac,
                        input$Nummeric_choice_num_vs_fac,
                        input$color_choise_num_vs_fac)
@@ -140,7 +140,7 @@ mod_variable_overview_server <- function(id){
 
 
     output$fac <- renderPlot(
-      barplot_brca(my_data_clean_aug,
+      barplot_BRCA(my_data_clean_aug,
                    input$Factorial_choice_fac,
                    input$color_choise_fac)
     )
