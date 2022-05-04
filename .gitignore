@@ -11,4 +11,5 @@ BreastCancerExplorer*.tar.gz
 BreastCancerExplorer*.tgz
 R/0*
 R/99_project_functions.R
-data/*
+data/_raw/BRCA2.csv
+data/0*
