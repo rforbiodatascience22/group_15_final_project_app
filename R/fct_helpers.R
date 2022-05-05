@@ -33,8 +33,8 @@ my_data_clean_aug <- load_data_clean_aug()
 # This is the downside by importing all the nessesary script for
 # our main repository
 rm(list = c("barplot_BRCA", "boxplot_BRCA", "dens_protein_BRCA",
-            "histrogram_count", "load_data_clean_aug", "our_theme",
-            "pca_analysis", "pca_vis_BRCA", "violin_BRCA"))
+            "load_data_clean_aug", "our_theme", "pca_analysis",
+            "pca_vis_BRCA", "violin_BRCA"))
 
 boldtext <- function (text)
 {
