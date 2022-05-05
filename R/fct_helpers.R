@@ -6,8 +6,8 @@
 #'
 #' @noRd
 #'
-#'
-library('tidyverse')
+
+#library('tidyverse')
 # Get filenames from main repository
 path_from = "https://raw.githubusercontent.com/rforbiodatascience22/2022_group15_final_project/main/"
 filenames = c("R/01_load.R",
@@ -24,13 +24,6 @@ for (filename in filenames) {
   write_file(x=file,
             path = filename)
 }
-
-# Run files from main repository
-#source(file = "R/01_load.R")
-#source(file = "R/02_clean.R")
-#source(file = "R/03_augment.R")
-#source(file = "R/99_project_functions.R")
-
 
 boldtext <- function (text)
 {

@@ -22,15 +22,15 @@ mod_variable_overview_ui <- function(id){
                         "Protein 2" = "Protein2",
                         "Protein 3" = "Protein3",
                         "Protein 4" = "Protein4",
-                        "Age",
-                        "Diff Time Days" = "Diff_Time_Days")
+                        "Age")
           ),
 
-          boldtext("Choose factorial:"),
+          boldtext("Choose grouping:"),
           shiny::radioButtons(
             inputId = ns("Factorial_choice_num_vs_fac"),
             label = NULL,
-            choices = c("Tumour stage" = "Tumour_Stage",
+            choices = c("None" = "NULL",
+                        "Tumour stage" = "Tumour_Stage",
                         "Histology",
                         "HER2 status" = "HER2.status",
                         "Surgery type" = "Surgery_type",
@@ -62,6 +62,9 @@ mod_variable_overview_ui <- function(id){
         shiny::mainPanel(
           shiny::plotOutput(
             outputId = ns("num_vs_fac")
+          ),
+          shiny::htmlOutput(
+            outputId = ns("violin_null")
           ),
 
           # Set width of main panel
@@ -117,20 +120,29 @@ mod_variable_overview_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
-    output$num_vs_fac <- renderPlot({
-    if (input$plot_type_num_vs_fac == "Boxplot") {
-      boxplot_BRCA(my_data_clean_aug,
-                   input$Factorial_choice_num_vs_fac,
-                   input$Nummeric_choice_num_vs_fac,
-                   input$color_choise_num_vs_fac)
+
+    observe(
+      if (input$plot_type_num_vs_fac == "Boxplot") {
+        output$num_vs_fac <- renderPlot({
+        boxplot_BRCA(my_data_clean_aug,
+                     input$Factorial_choice_num_vs_fac,
+                     input$Nummeric_choice_num_vs_fac,
+                     input$color_choise_num_vs_fac)})
+        output$violin_null <- renderText("")
+      } else if ((input$plot_type_num_vs_fac == "Violin plot") &&
+                 (input$Factorial_choice_num_vs_fac == "NULL")){
+        output$violin_null <- renderText(
+        "<font color=\"#FF0000\"><b>
+        For violin plot, you need to choose a grouping</b></font>")
+      } else if (input$plot_type_num_vs_fac == "Violin plot") {
+        output$num_vs_fac <- renderPlot({
+            violin_BRCA(my_data_clean_aug,
+                         input$Factorial_choice_num_vs_fac,
+                         input$Nummeric_choice_num_vs_fac,
+                         input$color_choise_num_vs_fac)})
+        output$violin_null <- renderText("")
         }
-    else if (input$plot_type_num_vs_fac == "Violin plot") {
-          violin_BRCA(my_data_clean_aug,
-                       input$Factorial_choice_num_vs_fac,
-                       input$Nummeric_choice_num_vs_fac,
-                       input$color_choise_num_vs_fac)
-        }
-      })
+    )
 
 
     output$fac <- renderPlot(
@@ -138,8 +150,6 @@ mod_variable_overview_server <- function(id){
                    input$Factorial_choice_fac,
                    input$color_choise_fac)
     )
-
-
   })
 }
 
