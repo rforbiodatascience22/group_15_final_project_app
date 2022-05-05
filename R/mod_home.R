@@ -13,7 +13,14 @@ mod_home_ui <- function(id){
     titlePanel("Welcome to the shiny app 'BreastCancerExplorer'"),
     "This app is made so it is easy for you to explore the 'Real Breast Cancer Dataset', which can be found ",
     tags$a(href="https://www.kaggle.com/datasets/amandam1/breastcancerdataset?resource=download&fbclid=IwAR0lsWAUYPk9ZrcTFNt-JOlWm4PtDaueVS-Te-eRkb_WHv3wktfxScBhHKE&select=BRCA.csv",
-           "here"),
+           "here"),". The app has three additional panels to this one: 'Variable overview',
+    'Density plot' and 'PCA plots'. Which contain a selection panel to the left, and a viewing panel on the right.
+    Just select your wanted variables from the selection panel to visualize these in a plot.
+    Currently supports Box-/violin-plots, histograms, densityplots as well as a principal component comparison from a PCA analysis.
+    The repository for this application is ",
+    tags$a(href="https://github.com/rforbiodatascience22/group_15_final_project_app","here"),
+    "The app downloads its data analysis scripts and functions from another repository which is ",
+    tags$a(href="https://github.com/rforbiodatascience22/2022_group15_final_project","here"),
   )
 }
 
