@@ -24,7 +24,7 @@ mod_densityplots_ui <- function(id){
         selected = c("Protein1",'Protein2','Protein3','Protein4')
       ),
 
-      boldtext("Choose attribute"),
+      boldtext("Choose grouping"),
       shiny::radioButtons(
         inputId = ns("Attribute_dens"),
         label = NULL,
