@@ -7,6 +7,24 @@
 #' @noRd
 #'
 
+# install missing packages
+if (!"tidyverse" %in% installed.packages())
+  install.packages("tidyverse")
+if (!"fs" %in% installed.packages())
+  install.packages("fs")
+if (!"patchwork" %in% installed.packages())
+  install.packages("patchwork")
+if (!"broom" %in% installed.packages())
+  install.packages("broom")
+if (!"cowplot" %in% installed.packages())
+  install.packages("cowplot")
+if (!"ggplot2" %in% installed.packages())
+  install.packages("ggplot2")
+if (!"shiny" %in% installed.packages())
+  install.packages("shiny")
+if (!"golem" %in% installed.packages())
+  install.packages("golem")
+
 library('tidyverse')
 # Get filenames from main repository
 path_from = "https://raw.githubusercontent.com/rforbiodatascience22/2022_group15_final_project/main/"
