@@ -1,3 +1,4 @@
+source("R/fct_helpers.R")
 # Set options here
 options(golem.app.prod = FALSE) # TRUE = production mode, FALSE = development mode
 
