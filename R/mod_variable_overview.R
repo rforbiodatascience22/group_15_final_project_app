@@ -10,7 +10,7 @@
 mod_variable_overview_ui <- function(id){
   ns <- NS(id)
   tagList(
-    titlePanel("Factorial vs nummeric attributes"),
+    titlePanel("Factor vs nummeric attributes"),
 
     shiny::sidebarLayout(
         shiny::sidebarPanel(
@@ -72,11 +72,11 @@ mod_variable_overview_ui <- function(id){
         )
       ),
 
-      titlePanel("Factorial attributes"),
+      titlePanel("Factor attributes"),
 
       shiny::sidebarLayout(
         shiny::sidebarPanel(
-          boldtext("Choose factorial:"),
+          boldtext("Choose attribute:"),
           shiny::radioButtons(
             inputId = ns("Factorial_choice_fac"),
             label = NULL,
